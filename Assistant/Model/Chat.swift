@@ -14,7 +14,9 @@ struct AppChat: Codable, Identifiable {
     var topic: String?
     let lastMessageSent: FirestoreDate
     let owner: String
-    let type: ConversationType
+    let createdAt: Date
+//    let type: ConversationType
+    let category: String?
     
     var lastMessageTimeAgo: String {
         let now = Date()

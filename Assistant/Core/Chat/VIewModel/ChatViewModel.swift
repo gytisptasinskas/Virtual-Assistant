@@ -16,11 +16,14 @@ class ChatViewModel: ObservableObject {
     @Published var messageText: String = ""
     
     let chatId: String
+    let categoryName: String
     
     let db = Firestore.firestore()
     
-    init(chatId: String) {
+    init(chatId: String, categoryName: String) {
         self.chatId = chatId
+        self.categoryName = categoryName
+        self.messages = [AppMessage(text: "You are proffesional at \(categoryName). Your answers will short and understandable for simple users and you would never all yourself an ChatGBT you will answers that you are the Virtual assistant and you will you will help him with \(categoryName)", role: .system)]
     }
     
     

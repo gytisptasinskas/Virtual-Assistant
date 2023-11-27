@@ -122,6 +122,47 @@ enum ChatBotCategory: Int, CaseIterable, Identifiable {
         case .mentalWellbeing: return Color.cyan
         }
     }
+    
+    var tags: [String] {
+        switch self {
+        case .booking:
+            return ["Reservations", "Appointments", "Scheduling"]
+        case .contentCreation:
+            return ["Creative", "Media", "Design"]
+        case .history:
+            return ["Past", "Events", "Historical Figures"]
+        case .travel:
+            return ["Tourism", "Destinations", "Adventure"]
+        case .healthAdvice:
+            return ["Wellness", "Medical", "Health"]
+        case .cookingRecipes:
+            return ["Food", "Cuisine", "Gastronomy"]
+        case .sportsUpdates:
+            return ["Athletics", "Competitions", "Fitness"]
+        case .languageTranslation:
+            return ["Linguistics", "Communication", "Multilingual"]
+        case .financialAdvice:
+            return ["Economy", "Investing", "Budgeting"]
+        case .educationalResources:
+            return ["Learning", "School", "Academia"]
+        case .technologyUpdates:
+            return ["Innovation", "Gadgets", "IT"]
+        case .entertainment:
+            return ["Movies", "Music", "Leisure"]
+        case .localEvents:
+            return ["Community", "Festivals", "Meetups"]
+        case .shoppingAssistance:
+            return ["Retail", "Deals", "E-commerce"]
+        case .fitnessGuidance:
+            return ["Exercise", "Health", "Training"]
+        case .petCare:
+            return ["Animals", "Veterinary", "Pet Wellness"]
+        case .gardeningTips:
+            return ["Horticulture", "Plants", "Outdoors"]
+        case .mentalWellbeing:
+            return ["Psychology", "Self-care", "Emotional Health"]
+        }
+    }
 }
 
 

@@ -48,7 +48,7 @@ class HomeViewModel: ObservableObject {
     
     
     // MARK: - Creating / Deleting Conversations
-    func createChat() async {
+    func createChat(for category: ChatBotCategory) async {
         guard let currentUserUid = Auth.auth().currentUser?.uid else {
             print("No current user found")
             return
@@ -56,9 +56,12 @@ class HomeViewModel: ObservableObject {
 
         do {
             let document = try await db.collection("chats").addDocument(data: [
+                "topic": "Assistants with \(category.title)",
                 "lastMessageSent": Date(),
                 "owner": currentUserUid,
-                "type": ConversationType.chat.rawValue
+                "category": category.title,
+                "createdAt": Date()
+//                "type": ConversationType.chat.rawValue
             ])
             DispatchQueue.main.async {
                 self.newChatId = document.documentID
@@ -78,7 +81,7 @@ class HomeViewModel: ObservableObject {
             let document = try await db.collection("chats").addDocument(data: [
                 "lastMessageSent": Date(),
                 "owner": currentUserUid,
-                "type": ConversationType.talk.rawValue
+//                "type": ConversationType.talk.rawValue
             ])
             DispatchQueue.main.async {
                 self.newTalkId = document.documentID
@@ -117,14 +120,14 @@ class HomeViewModel: ObservableObject {
 }
     
 // MARK: - Enums
-enum ConversationType: String, Codable {
-    case chat
-    case talk
-}
+//enum ConversationType: String, Codable {
+//    case chat
+//    case talk
+//}
 
-enum ChatListState {
-    case none
-    case loading
-    case noResults
-    case result
-}
+//enum ChatListState {
+//    case none
+//    case loading
+//    case noResults
+//    case result
+//}

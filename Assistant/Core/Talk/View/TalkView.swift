@@ -11,6 +11,7 @@ import TipKit
 struct TalkView: View {
     @ObservedObject var viewModel: TalkViewModel
     let addConversationTip = StartFirstConversation()
+    var namespace: Namespace.ID
     
     var body: some View {
         VStack {
@@ -46,7 +47,7 @@ struct TalkView: View {
             }
             .padding()
         }
-        .navigationTitle(viewModel.chat?.topic ?? "New Conversation")
+        .navigationTitle(viewModel.chat?.topic ?? "Speaking to Assistant")
         .onAppear {
             viewModel.fetchData()
         }
@@ -78,12 +79,12 @@ struct TalkView: View {
     }
 }
 
-#Preview {
-    TalkView(viewModel: .init(chatId: "1"))
-        .task {
-            try? Tips.configure([
-                .displayFrequency(.monthly),
-                .datastoreLocation(.applicationDefault)
-            ])
-        }
-}
+//#Preview {
+//    TalkView(viewModel: .init(chatId: "1"), namespace: "circleImage")
+//        .task {
+//            try? Tips.configure([
+//                .displayFrequency(.monthly),
+//                .datastoreLocation(.applicationDefault)
+//            ])
+//        }
+//}

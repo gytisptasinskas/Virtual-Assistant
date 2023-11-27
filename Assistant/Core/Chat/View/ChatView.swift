@@ -70,12 +70,13 @@ struct ChatView: View {
             Button {
                 sendMessage()
             } label: {
-                 Text("Send")
+                Text("Send")
                     .padding()
-                    .background(Color.blue)
+                    .background(viewModel.messageText.isEmpty ? Color.gray : Color.blue)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
+            .disabled(viewModel.messageText.isEmpty)
         }
         .padding()
     }
@@ -92,5 +93,5 @@ struct ChatView: View {
 }
 
 #Preview {
-    ChatView(viewModel: .init(chatId: "1"))
+    ChatView(viewModel: .init(chatId: "1", categoryName: "booking"))
 }
