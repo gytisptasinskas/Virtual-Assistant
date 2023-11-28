@@ -17,6 +17,7 @@ class ExploreViewModel: ObservableObject {
     @Published var newTalkId: String?
     @Published var isShowingProfileView = false
     @Published var selectedTag: String? = nil
+    @Published var searchText: String = ""
     
     private let db = Firestore.firestore()
     
@@ -31,6 +32,8 @@ class ExploreViewModel: ObservableObject {
                 "lastMessageSent": Date(),
                 "owner": currentUserUid,
                 "category": category.title,
+                "createdAt": Date(),
+                "topic": "Assistants with \(category.title)",
 //                "type": ConversationType.chat.rawValue
             ])
             DispatchQueue.main.async {
@@ -70,9 +73,9 @@ class ExploreViewModel: ObservableObject {
     }
     
     var filteredCategories: [ChatBotCategory] {
-        if let selectedTag = selectedTag {
-            return categories.filter { $0.tags.contains(selectedTag) }
+        categories.filter { category in
+            (selectedTag == nil || category.tags.contains(selectedTag!)) &&
+            (searchText.isEmpty || category.title.localizedCaseInsensitiveContains(searchText) || category.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) }))
         }
-        return categories
     }
 }

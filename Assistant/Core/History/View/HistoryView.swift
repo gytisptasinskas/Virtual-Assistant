@@ -29,7 +29,7 @@ struct HistoryView: View {
                                             selectedCategory = category
                                             viewModel.filterChats(by: category)
                                         }
-                                        .padding()
+                                        .padding(10)
                                         .frame(minWidth: 80)
                                         .background(selectedCategory == category ? Color.blue.opacity(0.8) : Color.clear)
                                         .foregroundStyle(Color(uiColor: .label))

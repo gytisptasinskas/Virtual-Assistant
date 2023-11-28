@@ -105,7 +105,7 @@ struct ExploreView: View {
                     NavigationLink(destination: ChatView(viewModel: .init(chatId: viewModel.newChatId ?? "", categoryName: selectedCategoryTitle ?? "")), isActive: $navigateToChat) { EmptyView() }
                 }
 
-            .navigationTitle("Explore")
+            .navigationTitle("Chats")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -122,6 +122,7 @@ struct ExploreView: View {
                 viewModel.fetchCurrentUser()
             }
         }
+        .searchable(text: $viewModel.searchText)
         .sheet(isPresented: $viewModel.isShowingProfileView) {
             if let user = viewModel.user {
                 ProfileView(user: user)

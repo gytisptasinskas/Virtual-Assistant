@@ -91,6 +91,7 @@ struct HomeView: View {
                                     selectedChatId = chatId
                                     selectedCategoryTitle = category.title
                                     navigateToChat = true
+                                    viewModel.reorderCategories(selectedCategory: category)
                                 }
                             }
                         } label: {

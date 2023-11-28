@@ -22,6 +22,10 @@ class HomeViewModel: ObservableObject {
     
     private let db = Firestore.firestore()
     
+    init() {
+        loadSavedCategoryOrder()
+    }
+    
     // MARK: - Fetching Data
     func fetchData() {
         loadingState = .loading
@@ -113,9 +117,34 @@ class HomeViewModel: ObservableObject {
         }
     }
     
+    // MARK: - Category Ordering
+    func reorderCategories(selectedCategory: ChatBotCategory) {
+        categories.removeAll { $0 == selectedCategory }
+        categories.insert(selectedCategory, at: 0)
+        
+        saveCategoryOrder()
+    }
+    
+    private func saveCategoryOrder() {
+        let categoryTitles = categories.map { $0.title }
+        UserDefaults.standard.set(categoryTitles, forKey: "SavedCategoryOrder")
+    }
+    
     // MARK: - Navigation to ProfileView
     func showProfile() {
         isShowingProfileView = true
+    }
+    
+    func loadSavedCategoryOrder() {
+        if let savedOrder = UserDefaults.standard.array(forKey: "SavedCategoryOrder") as? [String] {
+            var orderedCategories = [ChatBotCategory]()
+            for title in savedOrder {
+                if let category = ChatBotCategory.allCases.first(where: { $0.title == title }) {
+                    orderedCategories.append(category)
+                }
+            }
+            categories = orderedCategories
+        }
     }
 }
     

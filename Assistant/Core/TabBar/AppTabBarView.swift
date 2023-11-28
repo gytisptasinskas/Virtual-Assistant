@@ -29,14 +29,6 @@ struct AppTabBarView: View {
                 .tabItem { Image(systemName: "book.fill") }
                 .onAppear { selectedTab = 2 }
                 .tag(2)
-            
-            EmptyView()
-                .tabItem {
-                    Image(systemName: selectedTab == 3 ? "heart.fill" : "heart")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
-                }
-                .onAppear { selectedTab = 3 }
-                .tag(3)
         }
         .tint(Color(uiColor: .label))
         
