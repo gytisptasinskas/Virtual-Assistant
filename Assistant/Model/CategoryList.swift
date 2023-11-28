@@ -163,6 +163,64 @@ enum ChatBotCategory: Int, CaseIterable, Identifiable {
             return ["Psychology", "Self-care", "Emotional Health"]
         }
     }
+    
+    var prompt: String {
+        switch self {
+        case .booking:
+            return "Offer concise booking assistance. Focus on clear dates, times, and options."
+            
+        case .contentCreation:
+            return "Provide brief, creative content ideas and essential tips."
+            
+        case .history:
+            return "Share succinct historical facts and key figures."
+            
+        case .travel:
+            return "Give brief travel tips and essential destination info."
+            
+        case .healthAdvice:
+            return "Offer general health tips in a concise format."
+            
+        case .cookingRecipes:
+            return "Suggest simple recipes and basic cooking advice."
+            
+        case .sportsUpdates:
+            return "Provide latest sports scores and news in a brief format."
+            
+        case .languageTranslation:
+            return "Assist with short, accurate translations and basic language tips."
+            
+        case .financialAdvice:
+            return "Give brief financial tips focusing on budgeting and saving."
+            
+        case .educationalResources:
+            return "Suggest learning resources in a concise, clear manner."
+            
+        case .technologyUpdates:
+            return "Share brief updates on the latest tech trends."
+            
+        case .entertainment:
+            return "Update briefly on movies, music, and pop culture."
+            
+        case .localEvents:
+            return "Provide short, key details on local events."
+            
+        case .shoppingAssistance:
+            return "Offer quick tips for online shopping and finding deals."
+            
+        case .fitnessGuidance:
+            return "Provide brief fitness tips and basic exercise recommendations."
+            
+        case .petCare:
+            return "Give concise pet care advice focusing on health and grooming."
+            
+        case .gardeningTips:
+            return "Share simple gardening tips and plant care advice."
+            
+        case .mentalWellbeing:
+            return "Provide short mental health tips and self-care strategies."
+        }
+    }
 }
 
 

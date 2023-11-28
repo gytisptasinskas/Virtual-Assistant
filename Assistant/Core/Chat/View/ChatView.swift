@@ -12,7 +12,7 @@ struct ChatView: View {
     var body: some View {
         VStack {
             ScrollViewReader { scrollView in
-                List(viewModel.messages) { message in
+                List(viewModel.messages.filter({ $0.role != .system })) { message in
                     messageView(for: message)
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
