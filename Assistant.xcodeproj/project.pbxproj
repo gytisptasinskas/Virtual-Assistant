@@ -15,6 +15,7 @@
 		BC2F819B2B14FCB400707E22 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F819A2B14FCB400707E22 /* ExploreViewModel.swift */; };
 		BC2F819D2B14FCD500707E22 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */; };
 		BC2F81A12B15293200707E22 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F81A02B15293200707E22 /* HistoryViewModel.swift */; };
+		BC2F81AD2B16614400707E22 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F81AC2B16614400707E22 /* OnboardingView.swift */; };
 		BC5B51D32B010C7200B06D18 /* AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5B51D22B010C7200B06D18 /* AssistantApp.swift */; };
 		BC5B51D52B010C7200B06D18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5B51D42B010C7200B06D18 /* ContentView.swift */; };
 		BC5B51D72B010C7300B06D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC5B51D62B010C7300B06D18 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		BC2F819A2B14FCB400707E22 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
 		BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		BC2F81A02B15293200707E22 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		BC2F81AC2B16614400707E22 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BC5B51CF2B010C7200B06D18 /* Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5B51D22B010C7200B06D18 /* AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantApp.swift; sourceTree = "<group>"; };
 		BC5B51D42B010C7200B06D18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BC2F81A22B1659BF00707E22 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				BC2F81AC2B16614400707E22 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		BC5B51C62B010C7200B06D18 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +231,7 @@
 		BC5B51E02B010C8F00B06D18 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BC2F81A22B1659BF00707E22 /* Onboarding */,
 				BC2F81932B14F70800707E22 /* History */,
 				BC2F818E2B14F67400707E22 /* Explore */,
 				BC2F818B2B14F5E100707E22 /* TabBar */,
@@ -497,6 +508,7 @@
 				BC5B51EB2B010FD000B06D18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				BC5B52382B01263E00B06D18 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				BCBEC6D42B13877700E56E6B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				BC2F81A32B165B7500707E22 /* XCRemoteSwiftPackageReference "rive-ios" */,
 			);
 			productRefGroup = BC5B51D02B010C7200B06D18 /* Products */;
 			projectDirPath = "";
@@ -551,6 +563,7 @@
 				BC2F81992B14F9D100707E22 /* CategoryList.swift in Sources */,
 				BCBEC6CC2B137A1100E56E6B /* ProfileViewModel.swift in Sources */,
 				BC2F819B2B14FCB400707E22 /* ExploreViewModel.swift in Sources */,
+				BC2F81AD2B16614400707E22 /* OnboardingView.swift in Sources */,
 				BCBEC6DC2B139E6E00E56E6B /* Tip.swift in Sources */,
 				BC5F9BC52B06196B002E2CA6 /* SignUpViewModel.swift in Sources */,
 				BC7F74F02B027A1200E9E02F /* FirebaseDate.swift in Sources */,
@@ -774,6 +787,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BC2F81A32B165B7500707E22 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.2;
+			};
+		};
 		BC5B51EB2B010FD000B06D18 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
