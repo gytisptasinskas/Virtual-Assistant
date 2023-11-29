@@ -31,9 +31,9 @@ struct HistoryView: View {
                                         }
                                         .padding(10)
                                         .frame(minWidth: 80)
-                                        .background(selectedCategory == category ? Color.blue.opacity(0.8) : Color.clear)
+                                        .background(selectedCategory == category ? Color.blue.opacity(0.7) : Color.clear)
                                         .foregroundStyle(Color(uiColor: .label))
-                                        .clipShape(Capsule())
+                                        .clipShape(RoundedRectangle(cornerRadius: 12))
                                     }
                                 }
                                 .padding()
@@ -51,10 +51,10 @@ struct HistoryView: View {
                                             Spacer()
                                             
                                             Text(chat.category ?? "")
-                                                .padding(8)
+                                                .padding(6)
                                                 .background(Color(uiColor: .systemBlue).opacity(0.4))
                                                 .foregroundStyle(.white)
-                                                .clipShape(Capsule())
+                                                .clipShape(RoundedRectangle(cornerRadius: 10))
                                         }
                                         
                                         Text(chat.lastMessageTimeAgo)

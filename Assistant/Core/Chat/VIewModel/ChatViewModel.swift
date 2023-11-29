@@ -18,6 +18,19 @@ class ChatViewModel: ObservableObject {
     let chatId: String
     let categoryName: String
     
+    var currentCategory: ChatBotCategory {
+        return ChatBotCategory(rawValue: ChatBotCategory.allCases.firstIndex(where: { $0.title == categoryName }) ?? -1) ?? .booking
+    }
+    
+    var showsDisclaimer: Bool {
+        switch ChatBotCategory(rawValue: ChatBotCategory.allCases.firstIndex(where: { $0.title == categoryName }) ?? -1) {
+        case .healthAdvice, .financialAdvice, .petCare, .mentalWellbeing:
+            return true
+        default:
+            return false
+        }
+    }
+    
     let db = Firestore.firestore()
     
     init(chatId: String, categoryName: String) {
@@ -31,6 +44,9 @@ class ChatViewModel: ObservableObject {
             self.messages = []
         }
     }
+    
+
+
     
     // MARK: - Fetch Data
     func fetchData() {

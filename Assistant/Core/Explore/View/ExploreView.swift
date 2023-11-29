@@ -24,9 +24,9 @@ struct ExploreView: View {
                                 Text(tag)
                                     .padding(10)
                                     .foregroundStyle(Color(uiColor: .label))
-                                    .background(viewModel.selectedTag == tag ? Color.blue.opacity(0.8) : Color.clear)
+                                    .background(viewModel.selectedTag == tag ? Color.blue.opacity(0.7) : Color.clear)
                                     .frame(minWidth: 80)
-                                    .clipShape(Capsule())
+                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                             }
                         }
                     }
@@ -77,7 +77,7 @@ struct ExploreView: View {
                                                     .frame(minWidth: 60)
                                                     .padding(10)
                                                     .background(category.color)
-                                                    .clipShape(Capsule())
+                                                    .clipShape(RoundedRectangle(cornerRadius: 12))
                                                 
                                             } else {
                                                 Text(tag)
@@ -86,7 +86,7 @@ struct ExploreView: View {
                                                     .frame(minWidth: 60)
                                                     .padding(10)
                                                     .overlay {
-                                                        Capsule()
+                                                        RoundedRectangle(cornerRadius: 12)
                                                             .stroke(Color.primary, lineWidth: 2)
                                                     }
                                             }

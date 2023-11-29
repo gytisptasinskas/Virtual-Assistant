@@ -21,12 +21,16 @@ struct AppTabBarView: View {
                 .tag(0)
             
             ExploreView()
-                .tabItem { Image(systemName: "bubble.left.and.bubble.right.fill") }
+                .tabItem { Image(systemName: selectedTab == 1 ? "bubble.left.and.bubble.right.fill" : "bubble.left.and.bubble.right")
+                        .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
+                }
                 .onAppear { selectedTab = 1 }
                 .tag(1)
             
             HistoryView()
-                .tabItem { Image(systemName: "book.fill") }
+                .tabItem { Image(systemName: selectedTab == 2 ? "book.fill" : "book")
+                        .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)
+                }
                 .onAppear { selectedTab = 2 }
                 .tag(2)
         }

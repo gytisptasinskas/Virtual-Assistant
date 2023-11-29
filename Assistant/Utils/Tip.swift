@@ -45,3 +45,30 @@ struct ProfileImage: Tip {
         Image(systemName: "person.circle.fill")
     }
 }
+
+struct Disclaimer: Tip {
+    let category: ChatBotCategory
+    
+    var title: Text {
+        Text("Disclaimer!")
+    }
+    var message: Text? {
+        switch category {
+        case .healthAdvice:
+            return Text("Please note that the health advice provided is for general information purposes only and should not replace professional medical advice.")
+        case .financialAdvice:
+            return Text("Financial information provided is for educational purposes and should not be considered as financial advice from a professional advisor.")
+        case .petCare:
+            return Text("Pet care information provided is for general guidance only and is not a substitute for professional veterinary advice.")
+        case .mentalWellbeing:
+            return Text("Mental wellbeing advice is for informational purposes and is not a substitute for professional psychological or psychiatric advice.")
+        default:
+            return nil
+        }
+    }
+    
+    
+    var image: Image? {
+        Image(systemName: "exclamationmark")
+    }
+}

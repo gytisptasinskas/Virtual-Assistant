@@ -6,13 +6,20 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ChatView: View {
     @StateObject var viewModel: ChatViewModel
+    
+
     var body: some View {
         VStack {
+            if viewModel.showsDisclaimer {
+                TipView(Disclaimer(category: viewModel.currentCategory))
+                    .padding()
+            }
             ScrollViewReader { scrollView in
-                List(viewModel.messages) { message in
+                List(viewModel.messages.filter({ $0.role != .system })) { message in
                     messageView(for: message)
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)

@@ -22,7 +22,7 @@ struct OnboardingView: View {
     let onboardingContent = [
         OnboardingTextContent(title: "Virtual", title2: " Assistant", description: "Get to know your Virtual Assistant."),
         OnboardingTextContent(title: "Talk", title2: " with it", description: "Don't want to chat? You can also just use your microphone"),
-        OnboardingTextContent(title: "Chat", title2: " with it", description: "You can't chat with your virtual assistant and get information that you need"),
+        OnboardingTextContent(title: "Chat", title2: " with it", description: "You can chat with your virtual assistant and get information that you need"),
     ]
     
     let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect().receive(on: RunLoop.main)
@@ -41,8 +41,7 @@ struct OnboardingView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(maxWidth: geometry.size.width)
-                        .aspectRatio(0.75, contentMode: .fit)
-                        
+                        .aspectRatio(0.80, contentMode: .fit)
                         .mask {
                             Canvas { context, size in
                                 let circles = (0..<positions.count).map { tag in

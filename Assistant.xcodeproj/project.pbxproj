@@ -16,6 +16,8 @@
 		BC2F819D2B14FCD500707E22 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */; };
 		BC2F81A12B15293200707E22 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F81A02B15293200707E22 /* HistoryViewModel.swift */; };
 		BC2F81AD2B16614400707E22 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F81AC2B16614400707E22 /* OnboardingView.swift */; };
+		BC54CD8D2B1758F6007270A6 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54CD8C2B1758F6007270A6 /* AdView.swift */; };
+		BC54CD912B175A23007270A6 /* FeatureSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54CD902B175A23007270A6 /* FeatureSection.swift */; };
 		BC5B51D32B010C7200B06D18 /* AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5B51D22B010C7200B06D18 /* AssistantApp.swift */; };
 		BC5B51D52B010C7200B06D18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5B51D42B010C7200B06D18 /* ContentView.swift */; };
 		BC5B51D72B010C7300B06D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC5B51D62B010C7300B06D18 /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		BC2F81A02B15293200707E22 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BC2F81AC2B16614400707E22 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BC54CD8C2B1758F6007270A6 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
+		BC54CD902B175A23007270A6 /* FeatureSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSection.swift; sourceTree = "<group>"; };
 		BC5B51CF2B010C7200B06D18 /* Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC5B51D22B010C7200B06D18 /* AssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantApp.swift; sourceTree = "<group>"; };
 		BC5B51D42B010C7200B06D18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -188,6 +192,31 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		BC54CD8B2B1758E9007270A6 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				BC54CD8F2B1759F8007270A6 /* ViewModel */,
+				BC54CD8E2B1759F6007270A6 /* View */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
+		BC54CD8E2B1759F6007270A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC54CD8C2B1758F6007270A6 /* AdView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC54CD8F2B1759F8007270A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BC54CD902B175A23007270A6 /* FeatureSection.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BC5B51C62B010C7200B06D18 = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +260,7 @@
 		BC5B51E02B010C8F00B06D18 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BC54CD8B2B1758E9007270A6 /* Ads */,
 				BC2F81A22B1659BF00707E22 /* Onboarding */,
 				BC2F81932B14F70800707E22 /* History */,
 				BC2F818E2B14F67400707E22 /* Explore */,
@@ -552,6 +582,7 @@
 				BC2F818D2B14F5F600707E22 /* AppTabBarView.swift in Sources */,
 				BC2F81922B14F68400707E22 /* ExploreView.swift in Sources */,
 				BC5F9BD12B061C01002E2CA6 /* ContentViewModel.swift in Sources */,
+				BC54CD8D2B1758F6007270A6 /* AdView.swift in Sources */,
 				BC160EF02B13A65F008AE1D0 /* Modifiers.swift in Sources */,
 				BC2F81972B14F71900707E22 /* HistoryView.swift in Sources */,
 				BCBEC6DA2B138FD800E56E6B /* ColorSchemeService.swift in Sources */,
@@ -563,6 +594,7 @@
 				BC2F81992B14F9D100707E22 /* CategoryList.swift in Sources */,
 				BCBEC6CC2B137A1100E56E6B /* ProfileViewModel.swift in Sources */,
 				BC2F819B2B14FCB400707E22 /* ExploreViewModel.swift in Sources */,
+				BC54CD912B175A23007270A6 /* FeatureSection.swift in Sources */,
 				BC2F81AD2B16614400707E22 /* OnboardingView.swift in Sources */,
 				BCBEC6DC2B139E6E00E56E6B /* Tip.swift in Sources */,
 				BC5F9BC52B06196B002E2CA6 /* SignUpViewModel.swift in Sources */,
