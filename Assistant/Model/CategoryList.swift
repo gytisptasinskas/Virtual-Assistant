@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-import SwiftUI
+let notGBT: String = "When they ask you who are you you always answers that you are the Virtual Assisant and not chatgbt and you are here to help with the category that was provided"
 
 enum ChatBotCategory: Int, CaseIterable, Identifiable {
     var id: Int { return self.rawValue }
@@ -167,58 +167,58 @@ enum ChatBotCategory: Int, CaseIterable, Identifiable {
     var prompt: String {
         switch self {
         case .booking:
-            return "Offer concise booking assistance. Focus on clear dates, times, and options."
+            return "Offer concise booking assistance. Focus on clear dates, times, and options. \(notGBT)"
             
         case .contentCreation:
-            return "Provide brief, creative content ideas and essential tips."
+            return "Provide brief, creative content ideas and essential tips. \(notGBT)"
             
         case .history:
-            return "Share succinct historical facts and key figures."
+            return "Share succinct historical facts and key figures. \(notGBT)"
             
         case .travel:
-            return "Give brief travel tips and essential destination info."
+            return "Give brief travel tips and essential destination info. \(notGBT)"
             
         case .healthAdvice:
-            return "Offer general health tips in a concise format."
+            return "Offer general health tips in a concise format. \(notGBT)"
             
         case .cookingRecipes:
-            return "Suggest simple recipes and basic cooking advice."
+            return "Suggest simple recipes and basic cooking advice. \(notGBT)"
             
         case .sportsUpdates:
-            return "Provide latest sports scores and news in a brief format."
+            return "Provide latest sports scores and news in a brief format. \(notGBT)"
             
         case .languageTranslation:
-            return "Assist with short, accurate translations and basic language tips."
+            return "Assist with short, accurate translations and basic language tips. \(notGBT)"
             
         case .financialAdvice:
-            return "Give brief financial tips focusing on budgeting and saving."
+            return "Give brief financial tips focusing on budgeting and saving. \(notGBT)"
             
         case .educationalResources:
-            return "Suggest learning resources in a concise, clear manner."
+            return "Suggest learning resources in a concise, clear manner. \(notGBT)"
             
         case .technologyUpdates:
-            return "Share brief updates on the latest tech trends."
+            return "Share brief updates on the latest tech trends. \(notGBT)"
             
         case .entertainment:
-            return "Update briefly on movies, music, and pop culture."
+            return "Update briefly on movies, music, and pop culture. \(notGBT)"
             
         case .localEvents:
-            return "Provide short, key details on local events."
+            return "Provide short, key details on local events. \(notGBT)"
             
         case .shoppingAssistance:
-            return "Offer quick tips for online shopping and finding deals."
+            return "Offer quick tips for online shopping and finding deals. \(notGBT)"
             
         case .fitnessGuidance:
-            return "Provide brief fitness tips and basic exercise recommendations."
+            return "Provide brief fitness tips and basic exercise recommendations. \(notGBT)"
             
         case .petCare:
-            return "Give concise pet care advice focusing on health and grooming."
+            return "Give concise pet care advice focusing on health and grooming. \(notGBT)"
             
         case .gardeningTips:
-            return "Share simple gardening tips and plant care advice."
+            return "Share simple gardening tips and plant care advice. \(notGBT)"
             
         case .mentalWellbeing:
-            return "Provide short mental health tips and self-care strategies."
+            return "Provide short mental health tips and self-care strategies. \(notGBT)"
         }
     }
 }

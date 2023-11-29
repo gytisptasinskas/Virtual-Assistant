@@ -16,6 +16,8 @@ class AuthService {
     
     static let shared = AuthService()
     
+    let db = Firestore.firestore()
+    
     init() {
         self.userSession = Auth.auth().currentUser
         self.setupAuthStateListener()
@@ -65,7 +67,7 @@ class AuthService {
     private func uploadUserData(email: String, fullname: String, id: String) async throws {
         let user = User(fullname: fullname, email: email, uid: id, profileImageUrl: nil)
         guard let encodedUser = try? Firestore.Encoder().encode(user) else { return }
-        try await FirestoreConstants.UsersCollection.document(id).setData(encodedUser)
+        try await db.collection("users").document(id).setData(encodedUser)
     }
     
     @MainActor

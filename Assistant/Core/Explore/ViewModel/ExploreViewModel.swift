@@ -19,6 +19,21 @@ class ExploreViewModel: ObservableObject {
     @Published var selectedTag: String? = nil
     @Published var searchText: String = ""
     
+    var uniqueTags: [String] {
+        var allTags: Set<String> = []
+        categories.forEach { category in
+            allTags.formUnion(Set(category.tags))
+        }
+        return Array(allTags).sorted()
+    }
+    
+    var filteredCategories: [ChatBotCategory] {
+        categories.filter { category in
+            (selectedTag == nil || category.tags.contains(selectedTag!)) &&
+            (searchText.isEmpty || category.title.localizedCaseInsensitiveContains(searchText) || category.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) }))
+        }
+    }
+    
     private let db = Firestore.firestore()
     
     func createChat(for category: ChatBotCategory) async {
@@ -62,20 +77,5 @@ class ExploreViewModel: ObservableObject {
     // MARK: - Navigation to ProfileView
     func showProfile() {
         isShowingProfileView = true
-    }
-    
-    var uniqueTags: [String] {
-        var allTags: Set<String> = []
-        categories.forEach { category in
-            allTags.formUnion(Set(category.tags))
-        }
-        return Array(allTags).sorted()
-    }
-    
-    var filteredCategories: [ChatBotCategory] {
-        categories.filter { category in
-            (selectedTag == nil || category.tags.contains(selectedTag!)) &&
-            (searchText.isEmpty || category.title.localizedCaseInsensitiveContains(searchText) || category.tags.contains(where: { $0.localizedCaseInsensitiveContains(searchText) }))
-        }
     }
 }

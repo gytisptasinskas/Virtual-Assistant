@@ -76,7 +76,7 @@ struct ExploreView: View {
                                                     .foregroundStyle(Color(uiColor: .label))
                                                     .frame(minWidth: 60)
                                                     .padding(10)
-                                                    .background(category.color)
+                                                    .background(category.color).opacity(0.7)
                                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                                                 
                                             } else {

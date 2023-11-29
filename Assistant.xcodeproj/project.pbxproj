@@ -40,10 +40,10 @@
 		BC5F9BC32B061960002E2CA6 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BC22B061960002E2CA6 /* SignInViewModel.swift */; };
 		BC5F9BC52B06196B002E2CA6 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BC42B06196B002E2CA6 /* SignUpViewModel.swift */; };
 		BC5F9BC72B0619B9002E2CA6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BC62B0619B9002E2CA6 /* UserService.swift */; };
-		BC5F9BC92B061A1F002E2CA6 /* FirestoreConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BC82B061A1F002E2CA6 /* FirestoreConstants.swift */; };
 		BC5F9BCC2B061A71002E2CA6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BCB2B061A71002E2CA6 /* User.swift */; };
 		BC5F9BD12B061C01002E2CA6 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BD02B061C01002E2CA6 /* ContentViewModel.swift */; };
 		BC5F9BD32B061D68002E2CA6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5F9BD22B061D68002E2CA6 /* Message.swift */; };
+		BC63B78A2B177DBF00A9BEC5 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC63B7892B177DBF00A9BEC5 /* LaunchScreenView.swift */; };
 		BC7F74E02B02637C00E9E02F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74DF2B02637C00E9E02F /* Constants.swift */; };
 		BC7F74E52B0268F000E9E02F /* ImageStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74E42B0268F000E9E02F /* ImageStyle.swift */; };
 		BC7F74EC2B0269BF00E9E02F /* TalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74EB2B0269BF00E9E02F /* TalkViewModel.swift */; };
@@ -89,10 +89,10 @@
 		BC5F9BC22B061960002E2CA6 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		BC5F9BC42B06196B002E2CA6 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		BC5F9BC62B0619B9002E2CA6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		BC5F9BC82B061A1F002E2CA6 /* FirestoreConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreConstants.swift; sourceTree = "<group>"; };
 		BC5F9BCB2B061A71002E2CA6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BC5F9BD02B061C01002E2CA6 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		BC5F9BD22B061D68002E2CA6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		BC63B7892B177DBF00A9BEC5 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		BC7F74DF2B02637C00E9E02F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BC7F74E42B0268F000E9E02F /* ImageStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStyle.swift; sourceTree = "<group>"; };
 		BC7F74EB2B0269BF00E9E02F /* TalkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkViewModel.swift; sourceTree = "<group>"; };
@@ -260,6 +260,7 @@
 		BC5B51E02B010C8F00B06D18 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				BC63B7882B177DAD00A9BEC5 /* LauchScreen */,
 				BC54CD8B2B1758E9007270A6 /* Ads */,
 				BC2F81A22B1659BF00707E22 /* Onboarding */,
 				BC2F81932B14F70800707E22 /* History */,
@@ -416,6 +417,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BC63B7882B177DAD00A9BEC5 /* LauchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BC63B7892B177DBF00A9BEC5 /* LaunchScreenView.swift */,
+			);
+			path = LauchScreen;
+			sourceTree = "<group>";
+		};
 		BC7F74DE2B02637200E9E02F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,7 +432,6 @@
 				BC7F74DF2B02637C00E9E02F /* Constants.swift */,
 				BC7F74E42B0268F000E9E02F /* ImageStyle.swift */,
 				BC7F74EF2B027A1200E9E02F /* FirebaseDate.swift */,
-				BC5F9BC82B061A1F002E2CA6 /* FirestoreConstants.swift */,
 				BCBEC6CF2B13859500E56E6B /* PhotosPickerHelper.swift */,
 				BCBEC6DB2B139E6E00E56E6B /* Tip.swift */,
 				BC160EEF2B13A65F008AE1D0 /* Modifiers.swift */,
@@ -577,6 +585,7 @@
 				BCBEC6D02B13859500E56E6B /* PhotosPickerHelper.swift in Sources */,
 				BCBEC6CE2B13849700E56E6B /* ImageUploader.swift in Sources */,
 				BC5F9BC72B0619B9002E2CA6 /* UserService.swift in Sources */,
+				BC63B78A2B177DBF00A9BEC5 /* LaunchScreenView.swift in Sources */,
 				BC5F9BC12B061952002E2CA6 /* SignUpView.swift in Sources */,
 				BC5B51E42B010DC900B06D18 /* AuthService.swift in Sources */,
 				BC2F818D2B14F5F600707E22 /* AppTabBarView.swift in Sources */,
@@ -604,7 +613,6 @@
 				BC5F9BD32B061D68002E2CA6 /* Message.swift in Sources */,
 				BC5B52372B0123F700B06D18 /* ChatViewModel.swift in Sources */,
 				BC5F9BCC2B061A71002E2CA6 /* User.swift in Sources */,
-				BC5F9BC92B061A1F002E2CA6 /* FirestoreConstants.swift in Sources */,
 				BC2F819D2B14FCD500707E22 /* CategoryDetailView.swift in Sources */,
 				BC5B51D32B010C7200B06D18 /* AssistantApp.swift in Sources */,
 				BC7F74E02B02637C00E9E02F /* Constants.swift in Sources */,
