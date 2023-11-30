@@ -11,11 +11,13 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import Speech
 
+@MainActor
 class TalkViewModel: ObservableObject {
     @Published var chat: AppChat?
     @Published var messages: [AppMessage] = []
     @Published var messageText: String = ""
     @Published var isRecording = false
+    @Published var isGeneratingResponse = false
     
     let chatId: String
     let db = Firestore.firestore()
@@ -60,6 +62,16 @@ class TalkViewModel: ObservableObject {
     }
     
     // MARK: - Voice Function
+    
+    
+    func toggleRecording() {
+        if isRecording {
+            stopRecording()
+        } else {
+            startRecording()
+        }
+    }
+    
     func startRecording() {
         isRecording = true
         startListening()
@@ -135,6 +147,13 @@ class TalkViewModel: ObservableObject {
         recognitionRequest?.endAudio()
     }
     
+    func stopSpeech() {
+        if speechSynthesizer.isSpeaking {
+            speechSynthesizer.stopSpeaking(at: .immediate)
+        }
+    }
+
+    
     private func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
         }
@@ -163,6 +182,7 @@ class TalkViewModel: ObservableObject {
     }
     
     private func generateResponse(for message: AppMessage) async throws {
+        isGeneratingResponse = true
         let openAI = OpenAI(apiToken: Constants.apiKey)
         let queryMessages = messages.map { appMessage in
             Chat(role: appMessage.role, content: appMessage.text)
@@ -180,24 +200,25 @@ class TalkViewModel: ObservableObject {
         let fullResponse = responseParts.joined()
         await MainActor.run {
             processFullResponse(fullResponse)
+            isGeneratingResponse = false
         }
         
         if let lastMessage = messages.last {
             _ = try storeMessage(message: lastMessage)
         }
+        
+        isGeneratingResponse = false
     }
     
     func processFullResponse(_ response: String) {
         if !response.isEmpty {
-            if let lastMessage = messages.last, lastMessage.role != .user {
-                messages[messages.count - 1].text += response
-            } else {
-                let newMessage = AppMessage(id: UUID().uuidString, text: response, role: .assistant)
-                messages.append(newMessage)
+            let newMessage = AppMessage(id: UUID().uuidString, text: response, role: .assistant)
+            DispatchQueue.main.async {
+                self.messages.append(newMessage)
+                self.speak(response)
             }
-            
-            self.speak(response)
         }
     }
+
 }
 

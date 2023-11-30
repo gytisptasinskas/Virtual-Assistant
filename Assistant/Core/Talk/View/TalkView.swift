@@ -7,35 +7,41 @@
 
 import SwiftUI
 import TipKit
+import LottieSwiftUI
 
 struct TalkView: View {
     @ObservedObject var viewModel: TalkViewModel
     let addConversationTip = StartFirstConversation()
-    var namespace: Namespace.ID
     
     var body: some View {
         VStack {
+            LottieView(name: "voice", play: $viewModel.isRecording)
+                .lottieLoopMode(.loop)
+                .frame(width: 300, height: 300)
+            
             ScrollViewReader { scrollView in
-                List(viewModel.messages) { message in
-                    messageView(for: message)
-                        .listRowSeparator(.hidden)
-                        .listRowBackground(Color.clear)
-                        .id(message.id)
-                        .onChange(of: viewModel.messages) { newValue in
-                            scrollToBottom(scrollView: scrollView)
-                        }
+                List(viewModel.messages + (viewModel.isGeneratingResponse ? [AppMessage.placeholder] : [])) { message in
+                    if message.isPlaceholder {
+                        TypingIndicatorView()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .id(message.id)
+                    } else {
+                        messageView(for: message)
+                            .id(message.id)
+                    }
+
+                }
+                .onChange(of: viewModel.messages) { _ in
+                    scrollToBottom(scrollView: scrollView)
                 }
                 .background(Color(uiColor: .systemGroupedBackground))
                 .listStyle(.plain)
             }
             TipView(addConversationTip)
                 .padding(.horizontal)
+            
             Button {
-                if viewModel.isRecording {
-                    viewModel.stopRecording()
-                } else {
-                    viewModel.startRecording()
-                }
+                viewModel.toggleRecording()
             } label: {
                 Image(systemName: viewModel.isRecording ? "stop.circle" : "mic.circle")
                     .resizable()
@@ -46,20 +52,29 @@ struct TalkView: View {
                     .clipShape(Circle())
             }
             .padding()
+            
         }
         .navigationTitle(viewModel.chat?.topic ?? "Speaking to Assistant")
         .onAppear {
             viewModel.fetchData()
         }
+        .onDisappear {
+            viewModel.stopSpeech()
+        }
     }
     
     func scrollToBottom(scrollView: ScrollViewProxy) {
-        guard !viewModel.messages.isEmpty, let lastMessage = viewModel.messages.last else { return }
-        
-        withAnimation {
-            scrollView.scrollTo(lastMessage.id)
+        if viewModel.isGeneratingResponse {
+            withAnimation {
+                scrollView.scrollTo("placeholder", anchor: .bottom)
+            }
+        } else if let lastMessage = viewModel.messages.last {
+            withAnimation {
+                scrollView.scrollTo(lastMessage.id, anchor: .bottom)
+            }
         }
     }
+
     
     func messageView(for message: AppMessage) -> some View {
         HStack {

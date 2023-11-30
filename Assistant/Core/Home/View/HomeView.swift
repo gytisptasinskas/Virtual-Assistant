@@ -7,16 +7,18 @@
 
 import SwiftUI
 import TipKit
+import LottieSwiftUI
 
 struct HomeView: View {
     
     @StateObject var viewModel = HomeViewModel()
     @State private var navigateToChat = false
     @State private var navigateToTalk = false
+    @State private var navigateToAd = false
     @State private var selectedChatId: String? = nil
     @State private var selectedCategoryTitle: String? = nil
     @State private var isDismissed: Bool = true
-    @Namespace private var animationNamespace
+    @State private var playAnimation = true
     
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 20),
@@ -26,15 +28,19 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
-                NavigationLink(destination: TalkView(viewModel: .init(chatId: viewModel.newTalkId ?? ""), namespace: animationNamespace), isActive: $navigateToTalk) {
+                NavigationLink(destination: TalkView(viewModel: .init(chatId: viewModel.newTalkId ?? "")), isActive: $navigateToTalk) {
                     EmptyView()
                 }
                 VStack {
-                    Image("circle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 300)
-                        .matchedGeometryEffect(id: "circleImage", in: animationNamespace)
+                    LottieView(name: "voice", play: $playAnimation)
+                        .lottieLoopMode(.loop)
+                        .frame(width: 300, height: 300)
+                        .onTapGesture {
+                            Task {
+                                await viewModel.createTalk()
+                                navigateToTalk = true
+                            }
+                        }
                         .onTapGesture {
                             Task {
                                 await viewModel.createTalk()
@@ -62,6 +68,9 @@ struct HomeView: View {
                                 .foregroundStyle(Color(uiColor: .label))
                             }
                             Text("Image generation with sharing \nwith your friends")
+                        }
+                        .onTapGesture {
+                            navigateToAd = true
                         }
                         .padding()
                     }
@@ -122,10 +131,12 @@ struct HomeView: View {
                     }
                 }
                 .padding(.horizontal)
+                .padding(.bottom, 40)
                 
-                NavigationLink(destination: ChatView(viewModel: .init(chatId: viewModel.newChatId ?? "", categoryName: selectedCategoryTitle ?? "")), isActive: $navigateToChat) { EmptyView() }
+                NavigationLink(destination: ChatView(viewModel: .init(chatId: viewModel.newChatId ?? "", categoryName: selectedCategoryTitle ?? "")), isActive: $navigateToChat) { EmptyView()
+                }
             }
-            .navigationTitle("Hi \(viewModel.user?.firstName ?? "Welcome")")
+            .navigationTitle("Hi, \(viewModel.user?.firstName ?? "Welcome")")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -139,9 +150,6 @@ struct HomeView: View {
                 }
             }
             .onAppear {
-                if viewModel.loadingState == .none {
-                    viewModel.fetchData()
-                }
                 viewModel.fetchCurrentUser()
             }
         }
@@ -149,6 +157,9 @@ struct HomeView: View {
             if let user = viewModel.user {
                 ProfileView(user: user)
             }
+        }
+        .fullScreenCover(isPresented: $navigateToAd) {
+            AdView()
         }
     }
 }

@@ -91,6 +91,24 @@
       }
     },
     {
+      "identity" : "lottie-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-ios",
+      "state" : {
+        "revision" : "45517c3cfec9469bbdd4f86e32393c28ae9df0bc",
+        "version" : "4.3.3"
+      }
+    },
+    {
+      "identity" : "lottie-swiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/LukasHromadnik/Lottie-SwiftUI.git",
+      "state" : {
+        "revision" : "5248df81f494bdb64388b09e68284210a4126ee3",
+        "version" : "1.2.2"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",

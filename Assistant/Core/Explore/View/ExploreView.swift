@@ -33,8 +33,9 @@ struct ExploreView: View {
                     .padding(.horizontal, 8)
                     
                 }
+                
                 ScrollView(showsIndicators: false) {
-                    LazyVStack(spacing: 20) {
+                    VStack(spacing: 20) {
                         ForEach(viewModel.filteredCategories, id: \.id) { category in
                             Button {
                                 Task {
@@ -103,8 +104,7 @@ struct ExploreView: View {
                     .padding(.horizontal)
                     
                     NavigationLink(destination: ChatView(viewModel: .init(chatId: viewModel.newChatId ?? "", categoryName: selectedCategoryTitle ?? "")), isActive: $navigateToChat) { EmptyView() }
-                }
-
+            }
             .navigationTitle("Chats")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

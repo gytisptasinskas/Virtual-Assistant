@@ -49,6 +49,7 @@
 		BC7F74EC2B0269BF00E9E02F /* TalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74EB2B0269BF00E9E02F /* TalkViewModel.swift */; };
 		BC7F74EE2B0269C600E9E02F /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74ED2B0269C600E9E02F /* TalkView.swift */; };
 		BC7F74F02B027A1200E9E02F /* FirebaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74EF2B027A1200E9E02F /* FirebaseDate.swift */; };
+		BCB43AB82B18CAE60093A4B7 /* voice.json in Resources */ = {isa = PBXBuildFile; fileRef = BCB43AB72B18CAE60093A4B7 /* voice.json */; };
 		BCBEC6C82B1367A500E56E6B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6C72B1367A500E56E6B /* Chat.swift */; };
 		BCBEC6CC2B137A1100E56E6B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6CB2B137A1100E56E6B /* ProfileViewModel.swift */; };
 		BCBEC6CE2B13849700E56E6B /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6CD2B13849700E56E6B /* ImageUploader.swift */; };
@@ -58,6 +59,8 @@
 		BCBEC6D82B1387CF00E56E6B /* ProfileImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6D72B1387CF00E56E6B /* ProfileImageSize.swift */; };
 		BCBEC6DA2B138FD800E56E6B /* ColorSchemeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6D92B138FD800E56E6B /* ColorSchemeService.swift */; };
 		BCBEC6DC2B139E6E00E56E6B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6DB2B139E6E00E56E6B /* Tip.swift */; };
+		BCE3DBFE2B18CD3E00129DB1 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BCE3DBFD2B18CD3E00129DB1 /* LottieSwiftUI */; };
+		BCE3DC002B18D0BC00129DB1 /* TypingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +101,7 @@
 		BC7F74EB2B0269BF00E9E02F /* TalkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkViewModel.swift; sourceTree = "<group>"; };
 		BC7F74ED2B0269C600E9E02F /* TalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
 		BC7F74EF2B027A1200E9E02F /* FirebaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDate.swift; sourceTree = "<group>"; };
+		BCB43AB72B18CAE60093A4B7 /* voice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = voice.json; sourceTree = "<group>"; };
 		BCBEC6C72B1367A500E56E6B /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		BCBEC6CB2B137A1100E56E6B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		BCBEC6CD2B13849700E56E6B /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 		BCBEC6D72B1387CF00E56E6B /* ProfileImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSize.swift; sourceTree = "<group>"; };
 		BCBEC6D92B138FD800E56E6B /* ColorSchemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeService.swift; sourceTree = "<group>"; };
 		BCBEC6DB2B139E6E00E56E6B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC5B52052B010FD000B06D18 /* FirebaseFirestore in Frameworks */,
+				BCE3DBFE2B18CD3E00129DB1 /* LottieSwiftUI in Frameworks */,
 				BC5B52092B010FD000B06D18 /* FirebaseFirestoreSwift in Frameworks */,
 				BCBEC6D62B13877700E56E6B /* Kingfisher in Frameworks */,
 				BC5B51F92B010FD000B06D18 /* FirebaseAuth in Frameworks */,
@@ -242,6 +248,7 @@
 				BC5F9BCA2B061A68002E2CA6 /* Model */,
 				BC7F74DE2B02637200E9E02F /* Utils */,
 				BC5B51E22B010CE700B06D18 /* Service */,
+				BCB43AB62B18CAD70093A4B7 /* Lottie */,
 				BC5B51D62B010C7300B06D18 /* Assets.xcassets */,
 				BC5B52222B010FED00B06D18 /* GoogleService-Info.plist */,
 				BC5B51D82B010C7300B06D18 /* Preview Content */,
@@ -464,6 +471,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BCB43AB62B18CAD70093A4B7 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				BCB43AB72B18CAE60093A4B7 /* voice.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 		BCBEC6C92B137A0300E56E6B /* VIew */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +500,7 @@
 			children = (
 				BCBEC6D22B13873F00E56E6B /* CircularProfileImageView.swift */,
 				BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */,
+				BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -513,6 +529,7 @@
 				BC5B521E2B010FD000B06D18 /* FirebaseStorage */,
 				BC5B52392B01263E00B06D18 /* OpenAI */,
 				BCBEC6D52B13877700E56E6B /* Kingfisher */,
+				BCE3DBFD2B18CD3E00129DB1 /* LottieSwiftUI */,
 			);
 			productName = Assistant;
 			productReference = BC5B51CF2B010C7200B06D18 /* Assistant.app */;
@@ -547,6 +564,8 @@
 				BC5B52382B01263E00B06D18 /* XCRemoteSwiftPackageReference "OpenAI" */,
 				BCBEC6D42B13877700E56E6B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				BC2F81A32B165B7500707E22 /* XCRemoteSwiftPackageReference "rive-ios" */,
+				BCB43AB92B18CB200093A4B7 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				BCE3DBFC2B18CD3E00129DB1 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */,
 			);
 			productRefGroup = BC5B51D02B010C7200B06D18 /* Products */;
 			projectDirPath = "";
@@ -563,6 +582,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC5B51DA2B010C7300B06D18 /* Preview Assets.xcassets in Resources */,
+				BCB43AB82B18CAE60093A4B7 /* voice.json in Resources */,
 				BC5B52232B010FED00B06D18 /* GoogleService-Info.plist in Resources */,
 				BC5B51D72B010C7300B06D18 /* Assets.xcassets in Resources */,
 			);
@@ -578,6 +598,7 @@
 				BC7F74EE2B0269C600E9E02F /* TalkView.swift in Sources */,
 				BC5B522B2B01157700B06D18 /* HomeView.swift in Sources */,
 				BCBEC6D82B1387CF00E56E6B /* ProfileImageSize.swift in Sources */,
+				BCE3DC002B18D0BC00129DB1 /* TypingIndicatorView.swift in Sources */,
 				BC5B52352B0123E300B06D18 /* ChatView.swift in Sources */,
 				BC5F9BC32B061960002E2CA6 /* SignInViewModel.swift in Sources */,
 				BC2F81A12B15293200707E22 /* HistoryViewModel.swift in Sources */,
@@ -851,12 +872,28 @@
 				minimumVersion = 0.2.4;
 			};
 		};
+		BCB43AB92B18CB200093A4B7 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 		BCBEC6D42B13877700E56E6B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 7.10.0;
+			};
+		};
+		BCE3DBFC2B18CD3E00129DB1 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LukasHromadnik/Lottie-SwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -896,6 +933,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BCBEC6D42B13877700E56E6B /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		BCE3DBFD2B18CD3E00129DB1 /* LottieSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BCE3DBFC2B18CD3E00129DB1 /* XCRemoteSwiftPackageReference "Lottie-SwiftUI" */;
+			productName = LottieSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

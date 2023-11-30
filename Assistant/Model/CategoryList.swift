@@ -222,5 +222,3 @@ enum ChatBotCategory: Int, CaseIterable, Identifiable {
         }
     }
 }
-
-

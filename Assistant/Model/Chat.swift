@@ -40,3 +40,16 @@ struct AppChat: Codable, Identifiable {
         return "just now"
     }
 }
+
+extension AppMessage {
+    static var placeholder: AppMessage {
+        AppMessage(id: "placeholder", text: "", role: .assistant)
+    }
+}
+
+extension AppMessage {
+    var isPlaceholder: Bool {
+        self.id == "placeholder"
+    }
+}
+
