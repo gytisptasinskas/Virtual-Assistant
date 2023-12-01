@@ -21,6 +21,7 @@ Virtual Assistant is an App designed to help users find needed information using
 
 ## Technologies and Integrations
 - **Firebase Integration**: Utilizes Firebase services for authentication, storing messsages and images.
+- **OpenAI**: Uses OpenAI created ChatGBT api to generate responses for the users
 - **Architecture**: Project uses MVVM architecture to seperate views from their functionality
 
 ## Installation and Setup
