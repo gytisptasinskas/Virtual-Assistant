@@ -35,7 +35,7 @@ enum AboutSection: Int, CaseIterable, Identifiable {
     case helpCenter
     case termsOfUse
     case privacyPolicy
-    case licenses
+    case developer
     case appVersion
     case buildVersion
     var id: Int { return self.rawValue }
@@ -48,12 +48,12 @@ enum AboutSection: Int, CaseIterable, Identifiable {
             return "Terms of Use"
         case .privacyPolicy:
             return "Privacy Policy"
-        case .licenses:
-            return "Licenses"
+        case .developer:
+            return "Developer"
         case .appVersion:
-            return "App Version:"
+            return "App Version"
         case .buildVersion:
-            return "Build Version:"
+            return "Build Version"
             
         }
     }
@@ -66,10 +66,10 @@ enum AboutSection: Int, CaseIterable, Identifiable {
             return "newspaper.fill"
         case .privacyPolicy:
             return "lock.fill"
-        case .licenses:
-            return "book.closed.fill"
+        case .developer:
+            return "person.fill"
         case .appVersion:
-            return "app.badge.fill"
+            return "app.fill"
         case .buildVersion:
             return "hammer.fill"
         }
@@ -94,7 +94,7 @@ enum AboutSection: Int, CaseIterable, Identifiable {
             return URL(string: "https://openai.com/policies/terms-of-use")
         case .privacyPolicy:
             return URL(string: "https://openai.com/policies/privacy-policy")
-        case .licenses:
+        case .developer:
             return URL(string: "https://github.com/gytisptasinskas")
         default:
             return nil
