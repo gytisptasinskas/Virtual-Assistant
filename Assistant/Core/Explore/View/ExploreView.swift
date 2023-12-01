@@ -24,7 +24,7 @@ struct ExploreView: View {
                                 Text(tag)
                                     .padding(10)
                                     .foregroundStyle(Color(uiColor: .label))
-                                    .background(viewModel.selectedTag == tag ? Color.blue.opacity(0.7) : Color.clear)
+                                    .background(viewModel.selectedTag == tag ? Constants.defaultAccentColor : Color.clear)
                                     .frame(minWidth: 80)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
                             }

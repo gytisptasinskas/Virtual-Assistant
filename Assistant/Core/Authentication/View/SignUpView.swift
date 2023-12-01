@@ -17,7 +17,7 @@ struct SignUpView: View {
             Spacer()
             
             // logo image
-            Image("app-icon")
+            Image("app_logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)

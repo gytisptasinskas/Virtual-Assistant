@@ -75,11 +75,24 @@ struct ProfileView: View {
                     
                     Section("About") {
                         ForEach(AboutSection.allCases) { option in
-                            HStack {
-                                Image(systemName: option.imageName)
-                                
-                                Text(option.title)
-                                    .font(.subheadline)
+                            if let url = option.url {
+                                NavigationLink(destination: WebView(url: url)) {
+                                    HStack {
+                                        Image(systemName: option.imageName)
+                                        Text(option.title)
+                                        Spacer()
+                                    }
+                                }
+                            } else {
+                                HStack {
+                                    Image(systemName: option.imageName)
+                                    Text(option.title)
+                                    
+                                    Spacer()
+                                    
+                                    Text(option.description)
+                                        .foregroundStyle(Color(.systemGray2))
+                                }
                             }
                         }
                     }

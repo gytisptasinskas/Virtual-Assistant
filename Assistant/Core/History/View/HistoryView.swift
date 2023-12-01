@@ -17,10 +17,10 @@ struct HistoryView: View {
                 Group {
                     switch viewModel.loadingState {
                     case .loading, .none:
-                        Text("Loading History...")
+                            Text("Loading History...")
                     case .noResults:
-                        Text("No History")
-                    case .result: 
+                            Text("No History")
+                    case .result:
                         if !viewModel.filteredCategories.isEmpty {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 HStack {
@@ -31,7 +31,7 @@ struct HistoryView: View {
                                         }
                                         .padding(10)
                                         .frame(minWidth: 80)
-                                        .background(selectedCategory == category ? Color.blue.opacity(0.7) : Color.clear)
+                                        .background(selectedCategory == category ? Constants.defaultAccentColor : Color.clear)
                                         .foregroundStyle(Color(uiColor: .label))
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
                                     }
@@ -43,8 +43,13 @@ struct HistoryView: View {
                         List {
                             ForEach(viewModel.filteredChats) { chat in
                                 NavigationLink(value: chat.id) {
-                                    VStack(alignment: .leading) {
+                                    LazyVStack(alignment: .leading) {
                                         HStack {
+                                            if chat.isFavorite {
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(Color(uiColor: .systemYellow))
+                                            }
+                                            
                                             Text(chat.topic ?? "New Chat")
                                                 .font(.headline)
                                             
@@ -52,7 +57,7 @@ struct HistoryView: View {
                                             
                                             Text(chat.category ?? "")
                                                 .padding(6)
-                                                .background(Color(uiColor: .systemBlue).opacity(0.4))
+                                                .background(Constants.defaultAccentColor)
                                                 .foregroundStyle(.white)
                                                 .clipShape(RoundedRectangle(cornerRadius: 10))
                                         }
@@ -63,10 +68,16 @@ struct HistoryView: View {
                                     }
                                     
                                 }
-                                .swipeActions {
-                                    Button(role: .destructive) {
+                                .contextMenu {
+                                    Button(action: {
+                                        viewModel.toggleFavorite(for: chat)
+                                    }) {
+                                        Label(chat.isFavorite ? "Unfavorite" : "Favorite", systemImage: chat.isFavorite ? "star.fill" : "star")
+                                    }
+                                    
+                                    Button(role: .destructive, action: {
                                         viewModel.deleteChat(chat: chat)
-                                    } label: {
+                                    }) {
                                         Label("Delete", systemImage: "trash.fill")
                                     }
                                 }
@@ -109,7 +120,6 @@ struct HistoryView: View {
                 viewModel.fetchData()
                 viewModel.filterChats(by: "All")
             }
-            viewModel.fetchCurrentUser()
         }
     }
 }

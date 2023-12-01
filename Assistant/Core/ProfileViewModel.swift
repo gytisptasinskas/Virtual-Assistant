@@ -36,6 +36,9 @@ enum AboutSection: Int, CaseIterable, Identifiable {
     case termsOfUse
     case privacyPolicy
     case licenses
+    case appVersion
+    case buildVersion
+    var id: Int { return self.rawValue }
     
     var title: String {
         switch self {
@@ -47,6 +50,11 @@ enum AboutSection: Int, CaseIterable, Identifiable {
             return "Privacy Policy"
         case .licenses:
             return "Licenses"
+        case .appVersion:
+            return "App Version:"
+        case .buildVersion:
+            return "Build Version:"
+            
         }
     }
     
@@ -60,8 +68,36 @@ enum AboutSection: Int, CaseIterable, Identifiable {
             return "lock.fill"
         case .licenses:
             return "book.closed.fill"
+        case .appVersion:
+            return "app.badge.fill"
+        case .buildVersion:
+            return "hammer.fill"
         }
     }
     
-    var id: Int { return self.rawValue }
+    var description: String {
+        switch self {
+        case .appVersion:
+            return "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Unknown")"
+        case .buildVersion:
+            return "\(Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "Unknown")"
+        default:
+            return ""
+        }
+    }
+    
+    var url: URL? {
+        switch self {
+        case .helpCenter:
+            return URL(string: "https://help.openai.com/en/")
+        case .termsOfUse:
+            return URL(string: "https://openai.com/policies/terms-of-use")
+        case .privacyPolicy:
+            return URL(string: "https://openai.com/policies/privacy-policy")
+        case .licenses:
+            return URL(string: "https://github.com/gytisptasinskas")
+        default:
+            return nil
+        }
+    }
 }

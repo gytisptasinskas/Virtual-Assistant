@@ -19,6 +19,8 @@ class HistoryViewModel: ObservableObject {
     @Published var filteredChats: [AppChat] = []
     @Published var selectedSortingOrder = SortingOrder.newestFirst
     
+    private let db = Firestore.firestore()
+    
     var filteredCategories: [String] {
         Set(chats.map { $0.category ?? "Other" }).sorted()
     }
@@ -29,18 +31,29 @@ class HistoryViewModel: ObservableObject {
         } else {
             filteredChats = chats.filter { $0.category == category }
         }
+        
+        // Reapply the sorting logic after filtering
+        sortChats(by: selectedSortingOrder)
     }
-    
+
     func sortChats(by order: SortingOrder) {
-        switch order {
-        case .newestFirst:
-            filteredChats.sort(by: { $0.lastMessageSent > $1.lastMessageSent })
-        case .oldestFirst:
-            filteredChats.sort(by: { $0.lastMessageSent < $1.lastMessageSent })
+        filteredChats.sort { chat1, chat2 in
+            // First, prioritize favorited chats
+            if chat1.isFavorite && !chat2.isFavorite {
+                return true
+            } else if !chat1.isFavorite && chat2.isFavorite {
+                return false
+            }
+            
+            switch order {
+            case .newestFirst:
+                return chat1.lastMessageSent > chat2.lastMessageSent
+            case .oldestFirst:
+                return chat1.lastMessageSent < chat2.lastMessageSent
+            }
         }
     }
-    
-    private let db = Firestore.firestore()
+
     
     func fetchData() {
         loadingState = .loading
@@ -74,35 +87,28 @@ class HistoryViewModel: ObservableObject {
                     self.chats = fetchedChats
                     self.filterChats(by: "All")
                     self.sortChats(by: self.selectedSortingOrder)
-                    self.loadingState = .result
+                    self.loadingState = fetchedChats.isEmpty ? .noResults : .result
                 }
             }
     }
+    
+    func toggleFavorite(for chat: AppChat) {
+        guard let id = chat.id else { return }
+        
+        if let index = chats.firstIndex(where: { $0.id == id }) {
+            withAnimation {
+                chats[index].isFavorite.toggle()
+                sortChats(by: selectedSortingOrder)
+            }
+            
+            let updatedFavoriteStatus = chats[index].isFavorite
+            db.collection("chats").document(id).updateData(["isFavorite": updatedFavoriteStatus])
+        }
+    }
+
     func deleteChat(chat: AppChat) {
         guard let id = chat.id else { return }
         db.collection("chats").document(id).delete()
-    }
-    
-    // MARK: - Current User
-    
-    func fetchCurrentUser() {
-        Task {
-            do {
-                try await UserService.shared.fetchCurrentUser()
-                if let currentUser = UserService.shared.currentUser {
-                    DispatchQueue.main.async {
-                        self.user = currentUser
-                    }
-                }
-            } catch {
-                print("Error fetching current user: \(error)")
-            }
-        }
-    }
-    
-    // MARK: - Navigation to ProfileView
-    func showProfile() {
-        isShowingProfileView = true
     }
 }
 

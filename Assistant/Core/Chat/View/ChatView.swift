@@ -79,7 +79,7 @@ struct ChatView: View {
             } label: {
                 Text("Send")
                     .padding()
-                    .background(viewModel.messageText.isEmpty ? Color.gray : Color.blue)
+                    .background(viewModel.messageText.isEmpty ? Color.gray : Constants.defaultAccentColor)
                     .foregroundStyle(.white)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }

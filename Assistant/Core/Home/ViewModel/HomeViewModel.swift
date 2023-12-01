@@ -64,7 +64,8 @@ class HomeViewModel: ObservableObject {
                 "lastMessageSent": Date(),
                 "owner": currentUserUid,
                 "category": category.title,
-                "createdAt": Date()
+                "createdAt": Date(),
+                "isFavorite": false
 //                "type": ConversationType.chat.rawValue
             ])
             DispatchQueue.main.async {

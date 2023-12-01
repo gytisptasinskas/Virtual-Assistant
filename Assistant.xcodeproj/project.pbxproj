@@ -61,6 +61,7 @@
 		BCBEC6DC2B139E6E00E56E6B /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6DB2B139E6E00E56E6B /* Tip.swift */; };
 		BCE3DBFE2B18CD3E00129DB1 /* LottieSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BCE3DBFD2B18CD3E00129DB1 /* LottieSwiftUI */; };
 		BCE3DC002B18D0BC00129DB1 /* TypingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */; };
+		BCE3DC0A2B1A223600129DB1 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE3DC092B1A223600129DB1 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		BCBEC6D92B138FD800E56E6B /* ColorSchemeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeService.swift; sourceTree = "<group>"; };
 		BCBEC6DB2B139E6E00E56E6B /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypingIndicatorView.swift; sourceTree = "<group>"; };
+		BCE3DC092B1A223600129DB1 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,7 @@
 				BCBEC6D22B13873F00E56E6B /* CircularProfileImageView.swift */,
 				BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */,
 				BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */,
+				BCE3DC092B1A223600129DB1 /* WebView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -619,6 +622,7 @@
 				BC7F74EC2B0269BF00E9E02F /* TalkViewModel.swift in Sources */,
 				BC5B522D2B0116D800B06D18 /* HomeViewModel.swift in Sources */,
 				BC5F9BBF2B06193C002E2CA6 /* SignInView.swift in Sources */,
+				BCE3DC0A2B1A223600129DB1 /* WebView.swift in Sources */,
 				BC5B51D52B010C7200B06D18 /* ContentView.swift in Sources */,
 				BCBEC6C82B1367A500E56E6B /* Chat.swift in Sources */,
 				BC2F81992B14F9D100707E22 /* CategoryList.swift in Sources */,

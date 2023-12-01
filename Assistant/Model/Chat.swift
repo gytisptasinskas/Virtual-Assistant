@@ -17,6 +17,7 @@ struct AppChat: Codable, Identifiable {
     let createdAt: Date
 //    let type: ConversationType
     let category: String?
+    var isFavorite: Bool = false
     
     var lastMessageTimeAgo: String {
         let now = Date()

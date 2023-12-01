@@ -47,7 +47,7 @@ struct TalkView: View {
                     .resizable()
                     .frame(width: 60, height: 60)
                     .padding()
-                    .background(viewModel.isRecording ? Color(uiColor: .systemRed) : Color(uiColor: .systemBlue))
+                    .background(viewModel.isRecording ? Color(uiColor: .systemRed) : Constants.defaultAccentColor)
                     .foregroundColor(.white)
                     .clipShape(Circle())
             }

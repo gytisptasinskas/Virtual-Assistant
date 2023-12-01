@@ -14,7 +14,7 @@ struct AuthButtonModifier: ViewModifier {
             .fontWeight(.semibold)
             .foregroundColor(.white)
             .frame(width: 352, height: 44)
-            .background(Color(.systemBlue))
+            .background(Constants.defaultAccentColor)
             .cornerRadius(8)
     }
 }

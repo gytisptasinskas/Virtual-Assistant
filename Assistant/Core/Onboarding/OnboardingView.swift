@@ -82,7 +82,7 @@ struct OnboardingView: View {
                     HStack {
                         ForEach(0..<onboardingContent.count, id: \.self) { index in
                             Capsule()
-                                .fill(currentPage == index ? Color(uiColor: .systemGreen) : .gray)
+                                .fill(currentPage == index ? Constants.defaultAccentColor : .gray)
                                 .frame(width: currentPage == index ? 20 : 10, height: 8)
                                 .animation(.easeInOut(duration: 0.3), value: currentPage)
                         }
@@ -99,7 +99,7 @@ struct OnboardingView: View {
                             
                         }
                         .padding()
-                        .background(Color(uiColor: .systemGreen))
+                        .background(Constants.defaultAccentColor)
                         .clipShape(Circle())
                     }
                     .padding(.horizontal)
@@ -142,7 +142,7 @@ struct OnboardingTextView: View {
     
     var body: some View {
         VStack(spacing: 12) {
-            (Text(content.title) + Text(content.title2).bold().foregroundStyle(Color(uiColor: .systemGreen))
+            (Text(content.title) + Text(content.title2).bold().foregroundStyle(Constants.defaultAccentColor)
              
             )
             .font(.title)
@@ -151,7 +151,7 @@ struct OnboardingTextView: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.center)
         }
-        .padding() // Add padding if needed
+        .padding()
     }
 }
 

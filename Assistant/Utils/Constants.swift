@@ -5,13 +5,12 @@
 //  Created by Gytis Ptašinskas on 13/11/2023.
 //
 
-import Foundation
-import Foundation
-import Foundation
+import SwiftUI
 import Firebase
 
 enum Constants {
     static let apiKey = "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"
+    static let defaultAccentColor = Color(uiColor: .systemBlue).opacity(0.7)
 }
 
 enum AuthError: Error {
