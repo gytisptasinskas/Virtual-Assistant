@@ -17,7 +17,7 @@ struct TalkView: View {
         VStack {
             LottieView(name: "voice", play: $viewModel.isRecording)
                 .lottieLoopMode(.loop)
-                .frame(width: 300, height: 300)
+                .frame(width: 150, height: 150)
             
             ScrollViewReader { scrollView in
                 List(viewModel.messages + (viewModel.isGeneratingResponse ? [AppMessage.placeholder] : [])) { message in
