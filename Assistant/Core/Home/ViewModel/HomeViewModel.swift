@@ -40,8 +40,8 @@ class HomeViewModel: ObservableObject {
                 "owner": currentUserUid,
                 "category": category.title,
                 "createdAt": Date(),
-                "isFavorite": false
-//                "type": ConversationType.chat.rawValue
+                "isFavorite": false,
+                "type": ConversationType.chat.rawValue
             ])
             DispatchQueue.main.async {
                 self.newChatId = document.documentID
@@ -61,7 +61,7 @@ class HomeViewModel: ObservableObject {
             let document = try await db.collection("chats").addDocument(data: [
                 "lastMessageSent": Date(),
                 "owner": currentUserUid,
-//                "type": ConversationType.talk.rawValue
+                "type": ConversationType.talk.rawValue
             ])
             DispatchQueue.main.async {
                 self.newTalkId = document.documentID

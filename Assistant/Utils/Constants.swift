@@ -10,7 +10,7 @@ import Firebase
 
 enum Constants {
     static let apiKey = "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"
-    static let defaultAccentColor = Color(uiColor: .systemBlue).opacity(0.7)
+    static let defaultAccentColor = Color("appColor")
 }
 
 enum AuthError: Error {

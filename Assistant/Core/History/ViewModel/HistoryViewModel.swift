@@ -31,17 +31,14 @@ class HistoryViewModel: ObservableObject {
         } else {
             filteredChats = chats.filter { $0.category == category }
         }
-        
-        // Reapply the sorting logic after filtering
         sortChats(by: selectedSortingOrder)
     }
 
     func sortChats(by order: SortingOrder) {
         filteredChats.sort { chat1, chat2 in
-            // First, prioritize favorited chats
-            if chat1.isFavorite && !chat2.isFavorite {
+            if chat1.isFavorite ?? true && !(chat2.isFavorite ?? true) {
                 return true
-            } else if !chat1.isFavorite && chat2.isFavorite {
+            } else if !(chat1.isFavorite ?? false) && (chat2.isFavorite ?? false) {
                 return false
             }
             
@@ -81,6 +78,7 @@ class HistoryViewModel: ObservableObject {
                 let fetchedChats = documents.compactMap { snapshot -> AppChat? in
                     try? snapshot.data(as: AppChat.self)
                 }
+                    .filter { $0.type == .chat } // Filter chats by type
                     .sorted(by: { $0.lastMessageSent > $1.lastMessageSent })
                 
                 DispatchQueue.main.async {
@@ -91,18 +89,19 @@ class HistoryViewModel: ObservableObject {
                 }
             }
     }
+
     
     func toggleFavorite(for chat: AppChat) {
         guard let id = chat.id else { return }
         
         if let index = chats.firstIndex(where: { $0.id == id }) {
             withAnimation {
-                chats[index].isFavorite.toggle()
+                chats[index].isFavorite?.toggle()
                 sortChats(by: selectedSortingOrder)
             }
             
             let updatedFavoriteStatus = chats[index].isFavorite
-            db.collection("chats").document(id).updateData(["isFavorite": updatedFavoriteStatus])
+            db.collection("chats").document(id).updateData(["isFavorite": updatedFavoriteStatus ?? false])
         }
     }
 

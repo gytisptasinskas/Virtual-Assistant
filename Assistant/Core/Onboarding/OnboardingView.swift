@@ -95,7 +95,7 @@ struct OnboardingView: View {
                         } label: {
                             Image(systemName: "chevron.forward")
                                 .font(.title)
-                                .foregroundStyle(.black)
+                                .foregroundStyle(.white)
                             
                         }
                         .padding()

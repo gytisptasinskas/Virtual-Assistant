@@ -14,10 +14,10 @@ struct AppChat: Codable, Identifiable {
     var topic: String?
     let lastMessageSent: FirestoreDate
     let owner: String
-    let createdAt: Date
-//    let type: ConversationType
+    let createdAt: Date?
+    let type: ConversationType
     let category: String?
-    var isFavorite: Bool = false
+    var isFavorite: Bool? = false
     
     var lastMessageTimeAgo: String {
         let now = Date()
@@ -52,5 +52,10 @@ extension AppMessage {
     var isPlaceholder: Bool {
         self.id == "placeholder"
     }
+}
+
+enum ConversationType: String, Codable {
+    case chat
+    case talk
 }
 

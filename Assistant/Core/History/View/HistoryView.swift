@@ -31,6 +31,7 @@ struct HistoryView: View {
                                         }
                                         .padding(10)
                                         .frame(minWidth: 80)
+                                        .foregroundStyle(selectedCategory == category ? Color.white : Color(uiColor: .label))
                                         .background(selectedCategory == category ? Constants.defaultAccentColor : Color.clear)
                                         .foregroundStyle(Color(uiColor: .label))
                                         .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -43,9 +44,9 @@ struct HistoryView: View {
                         List {
                             ForEach(viewModel.filteredChats) { chat in
                                 NavigationLink(value: chat.id) {
-                                    LazyVStack(alignment: .leading) {
+                                    VStack(alignment: .leading) {
                                         HStack {
-                                            if chat.isFavorite {
+                                            if chat.isFavorite ?? false {
                                                 Image(systemName: "star.fill")
                                                     .foregroundColor(Color(uiColor: .systemYellow))
                                             }
@@ -55,7 +56,7 @@ struct HistoryView: View {
                                             
                                             Spacer()
                                             
-                                            Text(chat.category ?? "")
+                                            Text(chat.category ?? "Uncategorized")
                                                 .padding(6)
                                                 .background(Constants.defaultAccentColor)
                                                 .foregroundStyle(.white)
@@ -66,13 +67,13 @@ struct HistoryView: View {
                                             .font(.caption)
                                             .foregroundStyle(.gray)
                                     }
-                                    
                                 }
                                 .contextMenu {
                                     Button(action: {
                                         viewModel.toggleFavorite(for: chat)
                                     }) {
-                                        Label(chat.isFavorite ? "Unfavorite" : "Favorite", systemImage: chat.isFavorite ? "star.fill" : "star")
+                                        let isFavorite = chat.isFavorite ?? false
+                                        Label(isFavorite ? "Unfavorite" : "Favorite", systemImage: isFavorite ? "star.fill" : "star")
                                     }
                                     
                                     Button(role: .destructive, action: {
@@ -83,6 +84,7 @@ struct HistoryView: View {
                                 }
                             }
                         }
+                        
                     }
                 }
             }

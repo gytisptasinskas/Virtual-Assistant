@@ -23,7 +23,7 @@ struct ExploreView: View {
                             } label: {
                                 Text(tag)
                                     .padding(10)
-                                    .foregroundStyle(Color(uiColor: .label))
+                                    .foregroundStyle(viewModel.selectedTag == tag ? Color.white : Color(uiColor: .label))
                                     .background(viewModel.selectedTag == tag ? Constants.defaultAccentColor : Color.clear)
                                     .frame(minWidth: 80)
                                     .clipShape(RoundedRectangle(cornerRadius: 12))
@@ -52,7 +52,7 @@ struct ExploreView: View {
                         }
                     }
                     .padding(.horizontal)
-                    
+                    .padding(.bottom, 40)
                     NavigationLink(destination: ChatView(viewModel: .init(chatId: viewModel.newChatId ?? "", categoryName: selectedCategoryTitle ?? "")), isActive: $navigateToChat) { EmptyView() }
             }
             .navigationTitle("Chats")

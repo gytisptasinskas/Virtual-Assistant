@@ -49,8 +49,8 @@ class ExploreViewModel: ObservableObject {
                 "category": category.title,
                 "createdAt": Date(),
                 "topic": "Assistants with \(category.title)",
-                "isFavorite": false
-//                "type": ConversationType.chat.rawValue
+                "isFavorite": false,
+                "type": ConversationType.chat.rawValue
             ])
             DispatchQueue.main.async {
                 self.newChatId = document.documentID
