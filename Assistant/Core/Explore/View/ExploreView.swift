@@ -47,57 +47,7 @@ struct ExploreView: View {
                                     }
                                 }
                             } label: {
-                                VStack(alignment: .leading, spacing: 20) {
-                                    VStack(alignment: .leading) {
-                                        HStack {
-                                            category.iconImage
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 24, height: 24)
-                                                .foregroundColor(category.color)
-                                            
-                                            Text(category.title)
-                                                .font(.title2)
-                                                .foregroundColor(.primary)
-                                            
-                                            Spacer()
-                                        }
-                                        Text(category.description)
-                                            .font(.subheadline)
-                                            .foregroundStyle(Color(uiColor: .label))
-                                            .multilineTextAlignment(.leading)
-                                    }
-                                    
-                                    HStack {
-                                        ForEach(Array(category.tags.enumerated()), id: \.element) { index, tag in
-                                            
-                                            if index == 0 {
-                                                Text(tag)
-                                                    .font(.footnote)
-                                                    .foregroundStyle(Color(uiColor: .label))
-                                                    .frame(minWidth: 60)
-                                                    .padding(10)
-                                                    .background(category.color).opacity(0.7)
-                                                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                                                
-                                            } else {
-                                                Text(tag)
-                                                    .font(.footnote)
-                                                    .foregroundStyle(Color(uiColor: .label))
-                                                    .frame(minWidth: 60)
-                                                    .padding(10)
-                                                    .overlay {
-                                                        RoundedRectangle(cornerRadius: 12)
-                                                            .stroke(Color.primary, lineWidth: 2)
-                                                    }
-                                            }
-                                        }
-                                        
-                                    }
-                                }
-                                .padding()
-                                .frame(maxWidth: .infinity - 20)
-                                .background(RoundedRectangle(cornerRadius: 10).fill(Color(uiColor: .secondarySystemBackground)))
+                                CategoryCardView(category: category, size: .large)
                             }
                         }
                     }

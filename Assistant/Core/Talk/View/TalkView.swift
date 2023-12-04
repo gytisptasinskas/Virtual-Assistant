@@ -15,10 +15,6 @@ struct TalkView: View {
     
     var body: some View {
         VStack {
-            LottieView(name: "voice", play: $viewModel.isRecording)
-                .lottieLoopMode(.loop)
-                .frame(width: 150, height: 150)
-            
             ScrollViewReader { scrollView in
                 List(viewModel.messages + (viewModel.isGeneratingResponse ? [AppMessage.placeholder] : [])) { message in
                     if message.isPlaceholder {
@@ -26,14 +22,15 @@ struct TalkView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .id(message.id)
                     } else {
-                        messageView(for: message)
+                        MessageView(message: message)
                             .id(message.id)
                     }
 
                 }
                 .onChange(of: viewModel.messages) { _ in
-                    scrollToBottom(scrollView: scrollView)
+                    scrollView.scrollToBottom(messages: viewModel.messages, isGeneratingResponse: viewModel.isGeneratingResponse)
                 }
+
                 .background(Color(uiColor: .systemGroupedBackground))
                 .listStyle(.plain)
             }
@@ -63,35 +60,35 @@ struct TalkView: View {
         }
     }
     
-    func scrollToBottom(scrollView: ScrollViewProxy) {
-        if viewModel.isGeneratingResponse {
-            withAnimation {
-                scrollView.scrollTo("placeholder", anchor: .bottom)
-            }
-        } else if let lastMessage = viewModel.messages.last {
-            withAnimation {
-                scrollView.scrollTo(lastMessage.id, anchor: .bottom)
-            }
-        }
-    }
+//    func scrollToBottom(scrollView: ScrollViewProxy) {
+//        if viewModel.isGeneratingResponse {
+//            withAnimation {
+//                scrollView.scrollTo("placeholder", anchor: .bottom)
+//            }
+//        } else if let lastMessage = viewModel.messages.last {
+//            withAnimation {
+//                scrollView.scrollTo(lastMessage.id, anchor: .bottom)
+//            }
+//        }
+//    }
 
     
-    func messageView(for message: AppMessage) -> some View {
-        HStack {
-            if message.role == .user {
-                Spacer()
-            }
-            Text(message.text)
-                .padding(.horizontal)
-                .padding(.vertical, 12)
-                .background(message.role == .user ? .blue : .white)
-                .foregroundStyle(message.role == .user ? .white : .black)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-            if message.role == .assistant {
-                Spacer()
-            }
-        }
-    }
+//    func messageView(for message: AppMessage) -> some View {
+//        HStack {
+//            if message.role == .user {
+//                Spacer()
+//            }
+//            Text(message.text)
+//                .padding(.horizontal)
+//                .padding(.vertical, 12)
+//                .background(message.role == .user ? .blue : .white)
+//                .foregroundStyle(message.role == .user ? .white : .black)
+//                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+//            if message.role == .assistant {
+//                Spacer()
+//            }
+//        }
+//    }
 }
 
 //#Preview {

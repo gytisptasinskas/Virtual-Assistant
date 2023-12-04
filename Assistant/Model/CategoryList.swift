@@ -109,7 +109,7 @@ enum ChatBotCategory: Int, CaseIterable, Identifiable {
         case .healthAdvice: return Color.red
         case .cookingRecipes: return Color.pink
         case .sportsUpdates: return Color.purple
-        case .languageTranslation: return Color.yellow
+        case .languageTranslation: return Color.orange
         case .financialAdvice: return Color.gray
         case .educationalResources: return Color.indigo
         case .technologyUpdates: return Color.teal

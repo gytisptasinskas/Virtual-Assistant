@@ -31,6 +31,7 @@ class TalkViewModel: ObservableObject {
     init(chatId: String) {
         self.chatId = chatId
         requestSpeechAuthorization()
+        configureAudioSession() 
     }
     
     // MARK: - Fetch Data
@@ -68,9 +69,13 @@ class TalkViewModel: ObservableObject {
         if isRecording {
             stopRecording()
         } else {
+            if speechSynthesizer.isSpeaking {
+                speechSynthesizer.stopSpeaking(at: .immediate)
+            }
             startRecording()
         }
     }
+
     
     func startRecording() {
         isRecording = true
@@ -150,6 +155,16 @@ class TalkViewModel: ObservableObject {
     func stopSpeech() {
         if speechSynthesizer.isSpeaking {
             speechSynthesizer.stopSpeaking(at: .immediate)
+        }
+    }
+
+    private func configureAudioSession() {
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(.playAndRecord, mode: .spokenAudio, options: [.defaultToSpeaker])
+            try audioSession.setActive(true)
+        } catch {
+            print("Failed to set audio session category: \(error)")
         }
     }
 

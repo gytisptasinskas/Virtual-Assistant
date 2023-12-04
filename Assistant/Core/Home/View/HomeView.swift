@@ -101,32 +101,7 @@ struct HomeView: View {
                                 }
                             }
                         } label: {
-                            VStack(alignment: .leading) {
-                                VStack(alignment: .leading) {
-                                    category.iconImage
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 32, height: 32)
-                                        .foregroundColor(category.color)
-                                    
-                                    
-                                    Text(category.title)
-                                        .font(.headline)
-                                        .foregroundColor(.primary)
-                                }
-                              
-                                Spacer()
-                                
-                                Text(category.description)
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                    .multilineTextAlignment(.leading)
-                                
-                                Spacer()
-                            }
-                            .padding()
-                            .frame(width: 170, height: 170)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(Color(uiColor: .secondarySystemBackground)))
+                            CategoryCardView(category: category, size: .small)
                         }
                     }
                 }

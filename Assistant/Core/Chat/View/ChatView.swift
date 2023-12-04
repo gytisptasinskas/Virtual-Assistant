@@ -20,13 +20,15 @@ struct ChatView: View {
             }
             ScrollViewReader { scrollView in
                 List(viewModel.messages.filter({ $0.role != .system })) { message in
-                    messageView(for: message)
+                    MessageView(message: message)
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
                         .id(message.id)
-                        .onChange(of: viewModel.messages) { newValue in
-                            scrollToButtom(scrollView: scrollView)
+                        .onChange(of: viewModel.messages) { _ in
+                            scrollView.scrollToBottom(messages: viewModel.messages)
                         }
+
+
                 }
                 .background(Color(uiColor: .systemGroupedBackground))
                 .listStyle(.plain)
@@ -39,30 +41,30 @@ struct ChatView: View {
         }
     }
     
-    func scrollToButtom(scrollView: ScrollViewProxy) {
-        guard !viewModel.messages.isEmpty, let lastMessage = viewModel.messages.last else { return }
-        
-        withAnimation {
-            scrollView.scrollTo(lastMessage.id)
-        }
-    }
+//    func scrollToButtom(scrollView: ScrollViewProxy) {
+//        guard !viewModel.messages.isEmpty, let lastMessage = viewModel.messages.last else { return }
+//        
+//        withAnimation {
+//            scrollView.scrollTo(lastMessage.id)
+//        }
+//    }
     
-    func messageView(for message: AppMessage) -> some View {
-        HStack {
-            if (message.role == .user) {
-                Spacer()
-            }
-            Text(message.text)
-                .padding(.horizontal)
-                .padding(.vertical, 12)
-                .background(message.role == .user ? .blue : .white)
-                .foregroundStyle(message.role == .user ? .white : .black)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-            if (message.role == .assistant) {
-                Spacer()
-            }
-        }
-    }
+//    func messageView(for message: AppMessage) -> some View {
+//        HStack {
+//            if (message.role == .user) {
+//                Spacer()
+//            }
+//            Text(message.text)
+//                .padding(.horizontal)
+//                .padding(.vertical, 12)
+//                .background(message.role == .user ? .blue : .white)
+//                .foregroundStyle(message.role == .user ? .white : .black)
+//                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+//            if (message.role == .assistant) {
+//                Spacer()
+//            }
+//        }
+//    }
     
     var messageInputView: some View {
         HStack {

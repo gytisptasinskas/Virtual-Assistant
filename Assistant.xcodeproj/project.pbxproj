@@ -16,6 +16,9 @@
 		BC2F819D2B14FCD500707E22 /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */; };
 		BC2F81A12B15293200707E22 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F81A02B15293200707E22 /* HistoryViewModel.swift */; };
 		BC2F81AD2B16614400707E22 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2F81AC2B16614400707E22 /* OnboardingView.swift */; };
+		BC4879722B1DE1EA007F18C4 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4879712B1DE1EA007F18C4 /* MessageView.swift */; };
+		BC4879752B1DE26E007F18C4 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4879742B1DE26E007F18C4 /* ScrollView.swift */; };
+		BC4879792B1DE38F007F18C4 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC4879782B1DE38F007F18C4 /* CategoryCardView.swift */; };
 		BC54CD8D2B1758F6007270A6 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54CD8C2B1758F6007270A6 /* AdView.swift */; };
 		BC54CD912B175A23007270A6 /* FeatureSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC54CD902B175A23007270A6 /* FeatureSection.swift */; };
 		BC5B51D32B010C7200B06D18 /* AssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC5B51D22B010C7200B06D18 /* AssistantApp.swift */; };
@@ -74,6 +77,9 @@
 		BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
 		BC2F81A02B15293200707E22 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		BC2F81AC2B16614400707E22 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BC4879712B1DE1EA007F18C4 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		BC4879742B1DE26E007F18C4 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		BC4879782B1DE38F007F18C4 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
 		BC54CD8C2B1758F6007270A6 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		BC54CD902B175A23007270A6 /* FeatureSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureSection.swift; sourceTree = "<group>"; };
 		BC5B51CF2B010C7200B06D18 /* Assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assistant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +206,14 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		BC4879732B1DE264007F18C4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC4879742B1DE26E007F18C4 /* ScrollView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BC54CD8B2B1758E9007270A6 /* Ads */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +258,7 @@
 		BC5B51D12B010C7200B06D18 /* Assistant */ = {
 			isa = PBXGroup;
 			children = (
+				BC4879732B1DE264007F18C4 /* Extensions */,
 				BC5B52242B01120F00B06D18 /* App */,
 				BCBEC6D12B13873300E56E6B /* Components */,
 				BC5B51E02B010C8F00B06D18 /* Core */,
@@ -504,6 +519,8 @@
 				BC2F819C2B14FCD500707E22 /* CategoryDetailView.swift */,
 				BCE3DBFF2B18D0BC00129DB1 /* TypingIndicatorView.swift */,
 				BCE3DC092B1A223600129DB1 /* WebView.swift */,
+				BC4879712B1DE1EA007F18C4 /* MessageView.swift */,
+				BC4879782B1DE38F007F18C4 /* CategoryCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -606,6 +623,7 @@
 				BC5F9BC32B061960002E2CA6 /* SignInViewModel.swift in Sources */,
 				BC2F81A12B15293200707E22 /* HistoryViewModel.swift in Sources */,
 				BC5B52332B01237F00B06D18 /* ProfileView.swift in Sources */,
+				BC4879752B1DE26E007F18C4 /* ScrollView.swift in Sources */,
 				BCBEC6D02B13859500E56E6B /* PhotosPickerHelper.swift in Sources */,
 				BCBEC6CE2B13849700E56E6B /* ImageUploader.swift in Sources */,
 				BC5F9BC72B0619B9002E2CA6 /* UserService.swift in Sources */,
@@ -617,6 +635,7 @@
 				BC5F9BD12B061C01002E2CA6 /* ContentViewModel.swift in Sources */,
 				BC54CD8D2B1758F6007270A6 /* AdView.swift in Sources */,
 				BC160EF02B13A65F008AE1D0 /* Modifiers.swift in Sources */,
+				BC4879792B1DE38F007F18C4 /* CategoryCardView.swift in Sources */,
 				BC2F81972B14F71900707E22 /* HistoryView.swift in Sources */,
 				BCBEC6DA2B138FD800E56E6B /* ColorSchemeService.swift in Sources */,
 				BC7F74EC2B0269BF00E9E02F /* TalkViewModel.swift in Sources */,
@@ -626,6 +645,7 @@
 				BC5B51D52B010C7200B06D18 /* ContentView.swift in Sources */,
 				BCBEC6C82B1367A500E56E6B /* Chat.swift in Sources */,
 				BC2F81992B14F9D100707E22 /* CategoryList.swift in Sources */,
+				BC4879722B1DE1EA007F18C4 /* MessageView.swift in Sources */,
 				BCBEC6CC2B137A1100E56E6B /* ProfileViewModel.swift in Sources */,
 				BC2F819B2B14FCB400707E22 /* ExploreViewModel.swift in Sources */,
 				BC54CD912B175A23007270A6 /* FeatureSection.swift in Sources */,
@@ -777,6 +797,7 @@
 				DEVELOPMENT_TEAM = G5BSGM35FT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Virtual Assistant";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need for talk with bot ";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Need to understand speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -808,6 +829,7 @@
 				DEVELOPMENT_TEAM = G5BSGM35FT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Virtual Assistant";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Need for talk with bot ";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Need to understand speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -26,31 +26,6 @@ class HomeViewModel: ObservableObject {
         loadSavedCategoryOrder()
     }
     
-    // MARK: - Fetching Data
-    func fetchData() {
-        loadingState = .loading
-        guard let currentUserUid = Auth.auth().currentUser?.uid else {
-            self.loadingState = .noResults
-            return
-        }
-        
-        db.collection("chats")
-            .whereField("owner", isEqualTo: currentUserUid)
-            .addSnapshotListener { [weak self] querySnapshot, error in
-                guard let self = self, let documents = querySnapshot?.documents, !documents.isEmpty else {
-                    self?.loadingState = .noResults
-                    return
-                }
-                
-                self.chats = documents.compactMap({ snapshot -> AppChat? in
-                    return try? snapshot.data(as: AppChat.self)
-                })
-                .sorted(by: {$0.lastMessageSent > $1.lastMessageSent})
-                self.loadingState = .result
-            }
-    }
-    
-    
     // MARK: - Creating / Deleting Conversations
     func createChat(for category: ChatBotCategory) async {
         guard let currentUserUid = Auth.auth().currentUser?.uid else {
@@ -148,16 +123,3 @@ class HomeViewModel: ObservableObject {
         }
     }
 }
-    
-// MARK: - Enums
-//enum ConversationType: String, Codable {
-//    case chat
-//    case talk
-//}
-
-//enum ChatListState {
-//    case none
-//    case loading
-//    case noResults
-//    case result
-//}
