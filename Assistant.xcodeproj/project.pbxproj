@@ -52,6 +52,7 @@
 		BC7F74EC2B0269BF00E9E02F /* TalkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74EB2B0269BF00E9E02F /* TalkViewModel.swift */; };
 		BC7F74EE2B0269C600E9E02F /* TalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74ED2B0269C600E9E02F /* TalkView.swift */; };
 		BC7F74F02B027A1200E9E02F /* FirebaseDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7F74EF2B027A1200E9E02F /* FirebaseDate.swift */; };
+		BC7FE8702B1F2CA5007D7D79 /* emptyHistory.json in Resources */ = {isa = PBXBuildFile; fileRef = BC7FE86F2B1F2CA5007D7D79 /* emptyHistory.json */; };
 		BCB43AB82B18CAE60093A4B7 /* voice.json in Resources */ = {isa = PBXBuildFile; fileRef = BCB43AB72B18CAE60093A4B7 /* voice.json */; };
 		BCBEC6C82B1367A500E56E6B /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6C72B1367A500E56E6B /* Chat.swift */; };
 		BCBEC6CC2B137A1100E56E6B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBEC6CB2B137A1100E56E6B /* ProfileViewModel.swift */; };
@@ -108,6 +109,7 @@
 		BC7F74EB2B0269BF00E9E02F /* TalkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkViewModel.swift; sourceTree = "<group>"; };
 		BC7F74ED2B0269C600E9E02F /* TalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkView.swift; sourceTree = "<group>"; };
 		BC7F74EF2B027A1200E9E02F /* FirebaseDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDate.swift; sourceTree = "<group>"; };
+		BC7FE86F2B1F2CA5007D7D79 /* emptyHistory.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyHistory.json; sourceTree = "<group>"; };
 		BCB43AB72B18CAE60093A4B7 /* voice.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = voice.json; sourceTree = "<group>"; };
 		BCBEC6C72B1367A500E56E6B /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		BCBEC6CB2B137A1100E56E6B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				BCB43AB72B18CAE60093A4B7 /* voice.json */,
+				BC7FE86F2B1F2CA5007D7D79 /* emptyHistory.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC5B51DA2B010C7300B06D18 /* Preview Assets.xcassets in Resources */,
+				BC7FE8702B1F2CA5007D7D79 /* emptyHistory.json in Resources */,
 				BCB43AB82B18CAE60093A4B7 /* voice.json in Resources */,
 				BC5B52232B010FED00B06D18 /* GoogleService-Info.plist in Resources */,
 				BC5B51D72B010C7300B06D18 /* Assets.xcassets in Resources */,

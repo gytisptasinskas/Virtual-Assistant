@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import LottieSwiftUI
 
 struct HistoryView: View {
     @StateObject var viewModel = HistoryViewModel()
     @State private var selectedCategory: String = "All"
-
+    @State private var playAnimation = true
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -19,7 +21,15 @@ struct HistoryView: View {
                     case .loading, .none:
                             Text("Loading History...")
                     case .noResults:
-                            Text("No History")
+                        VStack {
+                            LottieView(name: "emptyHistory", play: $playAnimation)
+                                .lottieLoopMode(.playOnce)
+                                .scaledToFit()
+                                .frame(width: 350, height: 350)
+                            Text("History is empty")
+                                .font(.title)
+                            Spacer()
+                        }
                     case .result:
                         if !viewModel.filteredCategories.isEmpty {
                             ScrollView(.horizontal, showsIndicators: false) {
