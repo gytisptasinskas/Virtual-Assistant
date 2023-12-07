@@ -26,7 +26,7 @@ struct HistoryView: View {
                                 .lottieLoopMode(.playOnce)
                                 .scaledToFit()
                                 .frame(width: 350, height: 350)
-                            Text("History is empty")
+                            Text("Chat History is empty")
                                 .font(.title)
                             Spacer()
                         }

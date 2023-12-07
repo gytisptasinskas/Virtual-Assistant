@@ -44,7 +44,7 @@ struct CategoryCardView: View {
             Spacer()
             
             Text(category.description)
-                .font(size == .large ? .title3 : .subheadline)
+                .font(.subheadline)
                 .foregroundColor(.secondary)
                 .multilineTextAlignment(.leading)
                 .lineLimit(nil)
